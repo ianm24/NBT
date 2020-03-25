@@ -470,11 +470,15 @@ class TAG_Compound(TAG, MutableMapping):
     """
     id = TAG_COMPOUND
 
-    def __init__(self, buffer=None, name=None):
+    def __init__(self, name=None, buffer=None):
         # TODO: add a value parameter as well
-        super(TAG_Compound, self).__init__()
+        super(TAG_Compound, self).__init__(name)
         self.tags = []
-        self.name = ""
+        # print(self.name)
+        if name:
+            self.name = name
+        else:
+            self.name = ""
         if buffer:
             self._parse_buffer(buffer)
 
